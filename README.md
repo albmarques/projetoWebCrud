@@ -1,5 +1,5 @@
 Projeto da disciplina Desenvolvimento Web 2 
-npm install express --save
+npm install express --save \n
 npm install sequelize --save
 npm install mysql2 --save
 npm install body-parser --save
