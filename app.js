@@ -14,6 +14,15 @@ app.get("/",function(req,res){
     res.render("primeira_pagina")
 })
 
+app.get("/consultar",function(req,res){
+    post.findAll().then(function(post){
+        res.render("consultar", {post})    
+    }).catch(function(erro){
+        console.log("Erro ao carregar "+erro)
+    })
+    
+})
+
 app.post("/cadastrar",function(req,res){
     post.create({
         nome: req.body.nome,
