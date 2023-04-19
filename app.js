@@ -44,7 +44,7 @@ app.post("/cadastrar",function(req,res){
         data:req.body.data,
         observacao:req.body.obs
     }).then(function(){
-        res.send("Dados enviados com sucesso!")
+        res.redirect("/")
     }).catch(function(erro){
         res.send("Erro "+erro)
     })
