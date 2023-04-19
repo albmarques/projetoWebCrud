@@ -23,6 +23,19 @@ app.get("/consultar",function(req,res){
     
 })
 
+app.get("/excluir/:id",function(req,res){
+    post.destroy({
+        where: {
+          id: req.params.id
+        },
+        force: true
+      }).then(function(){
+        res.redirect("/consultar")
+    }).catch(function(erro){
+        console.log("Erro ao deletar "+erro)
+    })
+})
+
 app.post("/cadastrar",function(req,res){
     post.create({
         nome: req.body.nome,
