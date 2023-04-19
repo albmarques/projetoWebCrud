@@ -25,6 +25,7 @@
         <div class="col">Origem</div>
         <div class="col">Data contato</div>
         <div class="col">Observação</div>
+        <div class="col">Ação</div>
     </div>
     {{#each post}}
     {{#dataValues}}
@@ -34,6 +35,7 @@
         <div class="col">{{origem}}</div>
         <div class="col">{{data}}</div>
         <div class="col">{{observacao}}</div>
+      <div class="col"><a href="/excluir/{{id}}"><button class="btn btn-primary" type="submit">Excluir</button></div></div></a>
     </div>
     {{/dataValues}}
     {{/each}}
