@@ -36,6 +36,14 @@ app.get("/excluir/:id",function(req,res){
     })
 })
 
+app.get("/atualizar/:id",function(req,res){
+    post.findAll().then(function(post){
+        res.render("atualizar", {post})    
+    }).catch(function(erro){
+        console.log("Erro ao carregar "+erro)
+    })
+})
+
 app.post("/cadastrar",function(req,res){
     post.create({
         nome: req.body.nome,
