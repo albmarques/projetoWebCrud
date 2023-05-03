@@ -35,9 +35,11 @@
         <div class="col">{{origem}}</div>
         <div class="col">{{data}}</div>
         <div class="col">{{observacao}}</div>
-      <div class="col"><a href="/atualizar/{{id}}"><button class="btn btn-primary" type="submit">Editar</button></div></div></a>
-      <div class="col"><a href="/excluir/{{id}}"><button class="btn btn-primary" type="submit">Excluir</button></div></div></a>
-    </div>
+      <div class="col">
+      <a href="/atualizar/{{id}}"><button class="btn btn-primary" type="submit">Editar</button></a>
+      <a href="/excluir/{{id}}"><button class="btn btn-primary" type="submit">Excluir</button></a>
+      </div>
+      </div>
     {{/dataValues}}
     {{/each}}
 </div>

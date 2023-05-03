@@ -25,14 +25,18 @@
         <div class="row">
             <h6>Sistema utilizado para Agendamento de serviços.</h6>
         </div>
-      <form action="/cadastrar" method="post">
+      <form action="/update" method="post">
+      {{#each post}}
+      {{#dataValues}}
         <div class="mb-3">
+          <input type="hidden"  id="id" name="id" value="{{id}}" aria-describedby="emailHelp">
           <label for="InputNome" class="form-label">Nome:</label>
-          <input type="text" class="form-control" id="InputNome" name="nome" aria-describedby="emailHelp">
+   
+          <input type="text" class="form-control" id="InputNome" name="nome" value="{{nome}}" aria-describedby="emailHelp">          
         </div>
         <div class="mb-3">
             <label for="InputTelefone" class="form-label">Telefone:</label>
-            <input type="text" class="form-control" placeholder="(xx)-xxxxx-xxxx" id="InputTelefone" name="telefone"aria-describedby="emailHelp">
+            <input type="text" class="form-control" placeholder="(xx)-xxxxx-xxxx" id="InputTelefone" value="{{telefone}}" name="telefone"aria-describedby="emailHelp">
           </div>
           <div class="mb-3">
             <label for="InputOrigem" class="form-label">Origem:</label>
@@ -44,12 +48,14 @@
         </div>
         <div class="mb-3">
             <label for="InputData" class="form-label">Data do contato:</label>
-            <input type="date" class="form-control" id="InputData" name="data" aria-describedby="emailHelp">
+            <input type="date" class="form-control" id="InputData" value="{{data}}" name="data" aria-describedby="emailHelp">
           </div>
           <div class="mb-3">
             <label for="Obs" class="form-label">Observação</label>
-            <textarea class="form-control" id="Obs" name="obs"rows="3"></textarea>
+            <textarea class="form-control" id="Obs"  name="obs"rows="3">{{observacao}}</textarea>
           </div>
+          {{/dataValues}}
+          {{/each}}
         <button type="submit" class="btn btn-primary">atualizar</button>
       </form>
       

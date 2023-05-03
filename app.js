@@ -37,7 +37,11 @@ app.get("/excluir/:id",function(req,res){
 })
 
 app.get("/atualizar/:id",function(req,res){
-    post.findAll().then(function(post){
+    post.findAll({
+        where: {
+          id: req.params.id
+        }
+      }).then(function(post){
         res.render("atualizar", {post})    
     }).catch(function(erro){
         console.log("Erro ao carregar "+erro)
@@ -52,6 +56,22 @@ app.post("/cadastrar",function(req,res){
         data:req.body.data,
         observacao:req.body.obs
     }).then(function(){
+        res.redirect("/")
+    }).catch(function(erro){
+        res.send("Erro "+erro)
+    })
+})
+
+app.post("/update",function(req,res){
+    post.update({
+        nome: req.body.nome,
+        telefone:req.body.telefone,
+        origem:req.body.origem, 
+        data:req.body.data,
+        observacao:req.body.obs
+    },{
+        where:{id:req.body.id}    }
+    ).then(function(){
         res.redirect("/")
     }).catch(function(erro){
         res.send("Erro "+erro)
